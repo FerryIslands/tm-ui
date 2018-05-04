@@ -40,7 +40,11 @@ export default function<T extends Row>({
         <CopyButton row={row} valueAccessor={clipboardValue} />
       )}
       {columns.map(column => (
-        <TableCell column={column} key={row.id + column.key} row={row} />
+        <TableCell
+          column={column}
+          key={row.id + column.key + column.header}
+          row={row}
+        />
       ))}
     </Tr>
   )

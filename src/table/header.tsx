@@ -36,7 +36,7 @@ export default function<T>({
       {clipboardValue && <Th />}
       {columns.map(({ header, key }) => (
         <Th
-          key={key}
+          key={key + header}
           onClick={() => onSort && sortColumn === key && onSort(key)}
           sortable={!!onSort && sortColumn === key}
           sortDirection={
