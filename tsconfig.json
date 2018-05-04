@@ -7,6 +7,6 @@
     "outDir": "dist",
     "sourceMap": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es2015"
   }
 }
