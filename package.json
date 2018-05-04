@@ -24,5 +24,6 @@
   "scripts": {
     "build": "tsc",
     "test": "jest"
-  }
+  },
+  "version": "v1.0.0"
 }
