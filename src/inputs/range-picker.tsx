@@ -3,6 +3,9 @@ import * as React from 'react'
 import { DateRangePicker } from 'react-dates'
 import styled from 'styled-components'
 
+import 'react-dates/initialize'
+import 'react-dates/lib/css/_datepicker.css'
+
 const Wrapper = styled.div`
   .DateRangePicker {
     --disabled-text-color: #bbb;
