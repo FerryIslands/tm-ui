@@ -2,9 +2,15 @@ import styled from 'styled-components'
 
 export default styled.div`
   background: var(--background-color);
+  bottom: 0;
   color: var(--primary-color);
   cursor: default;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50px;
 
   --accent-active-color: #1c8e77;
   --accent-color: #1ab394;
