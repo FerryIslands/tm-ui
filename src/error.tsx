@@ -27,6 +27,6 @@ type Props = {
 export default ({ errors }: Props) => (
   <Error>
     <Header>An error occurred</Header>
-    <Details>{errors.map(error => error.message)}</Details>
+    <Details>{errors.map(error => <div>{error.message}</div>)}</Details>
   </Error>
 )

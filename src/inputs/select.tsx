@@ -6,6 +6,15 @@ export default (props: any) => (
     {...props}
     closeMenuOnSelect={false}
     styles={{
+      clearIndicator: (base: any) => ({
+        ...base,
+        color: 'var(--field-symbol-color)',
+
+        ':hover': {
+          cursor: 'pointer',
+          opacity: 0.5,
+        },
+      }),
       control: (base: any) => ({
         ...base,
         background: 'var(--field-background-color)',
@@ -17,6 +26,11 @@ export default (props: any) => (
       dropdownIndicator: (base: any) => ({
         ...base,
         color: 'var(--field-symbol-color)',
+
+        ':hover': {
+          cursor: 'pointer',
+          opacity: 0.5,
+        },
       }),
       indicatorSeparator: (base: any) => ({
         ...base,
