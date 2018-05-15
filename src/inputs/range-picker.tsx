@@ -1,4 +1,4 @@
-import moment, { Moment } from 'moment'
+import { Moment } from 'moment'
 import * as React from 'react'
 import { DateRangePicker } from 'react-dates'
 import styled from 'styled-components'

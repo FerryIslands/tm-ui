@@ -2,7 +2,6 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { Copy } from '../icons'
 import { Td } from './elements'
-import { Column, Row } from './model'
 
 const Button = styled.div`
   cursor: pointer;
@@ -31,10 +30,6 @@ const Tooltip = styled.div`
   padding: 10px;
   position: absolute;
   white-space: nowrap;
-`
-
-const CopyIcon = styled(Copy)`
-  height: 40px;
 `
 
 const Input = styled.input`
@@ -94,8 +89,6 @@ export default class<T> extends React.Component<Props<T>, State> {
   }
 
   render() {
-    const { row, valueAccessor } = this.props
-
     return (
       <Td>
         <Input innerRef={input => (this.input = input)} />

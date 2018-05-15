@@ -1,7 +1,7 @@
 import * as React from 'react'
 import TableCell from './cell'
 import CopyButton from './copy-button'
-import { Td, Tr } from './elements'
+import { Tr } from './elements'
 import { Column, Row } from './model'
 import TableRow from './row'
 import RowSelector from './row-selector'
@@ -46,9 +46,7 @@ export default function<T extends Row>({
           <TableCell
             column={{
               ...column,
-              format: groupBy.includes(column.key)
-                ? column.format
-                : (value: any) => '',
+              format: groupBy.includes(column.key) ? column.format : () => '',
             }}
             key={column.key}
             row={group}
@@ -59,9 +57,7 @@ export default function<T extends Row>({
         <TableRow
           columns={columns.map(column => ({
             ...column,
-            format: !groupBy.includes(column.key)
-              ? column.format
-              : (value: any) => '',
+            format: !groupBy.includes(column.key) ? column.format : () => '',
           }))}
           hideClipboardCopy={true}
           key={row.id}
