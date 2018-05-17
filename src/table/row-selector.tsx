@@ -1,10 +1,6 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import Checkbox from '../inputs/checkbox'
 import { Td } from './elements'
-
-const Input = styled.input`
-  padding: 5px;
-`
 
 type Props = {
   disabled: boolean
@@ -15,10 +11,9 @@ type Props = {
 export default ({ disabled, onSelectionChange, selected }: Props) => (
   <Td>
     {!disabled && (
-      <Input
+      <Checkbox
         checked={selected}
-        onChange={e => onSelectionChange(e.target.checked)}
-        type="checkbox"
+        onChange={checked => onSelectionChange(checked)}
       />
     )}
   </Td>

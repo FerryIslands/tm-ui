@@ -80,7 +80,7 @@ export default class<T extends Row> extends React.PureComponent<
 
     return (
       <Table>
-        <thead>
+        <tbody>
           <TableHeader
             clipboardValue={!!clipboardValue}
             columns={columns}
@@ -105,8 +105,6 @@ export default class<T extends Row> extends React.PureComponent<
             sortColumn={sortColumn}
             columnSorting={this.state.columnSorting}
           />
-        </thead>
-        <tbody>
           {groupBy
             ? grouper(groupBy, data, this.state.columnSorting).map(group => (
                 <TableGroup

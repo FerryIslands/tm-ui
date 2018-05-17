@@ -6,8 +6,10 @@ export const Table = styled.table`
 `
 
 export const Th = styled.th`
-  color: var(--secondary-color);
-  padding: 10px;
+  font-size: var(--normal-font-size);
+  font-weight: 500;
+  height: 45px;
+  padding: 0 10px;
   text-align: left;
 
   &::after {
@@ -48,9 +50,17 @@ type ThProps = {
 }
 
 export const Tr = styled.tr`
-  border-top: var(--border);
-  background: ${({ alternate }: TrProps) => alternate && '#fafafa'};
   color: ${({ disabled }: TrProps) => disabled && 'rgba(40,40,40,.3)'};
+
+  &:nth-child(odd) {
+    background: ${({ alternate }: TrProps) =>
+      alternate ? 'var(--odd-alternate-color)' : 'var(--odd-color)'};
+  }
+
+  &:nth-child(even) {
+    background: ${({ alternate }: TrProps) =>
+      alternate ? 'var(--even-alternate-color)' : 'var(--even-color)'};
+  }
 `
 
 type TrProps = {
@@ -59,5 +69,6 @@ type TrProps = {
 }
 
 export const Td = styled.td`
-  padding: 10px;
+  height: 45px;
+  padding: 0 10px;
 `

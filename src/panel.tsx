@@ -1,24 +1,31 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import Button from './button'
 
 const Panel = styled.div`
-  background: white;
+  background: var(--even-color);
   border-top: var(--panel-border);
-  margin: var(--padding);
+  flex: 1;
 `
 
 const Header = styled.div`
   align-items: center;
-  border-bottom: var(--border);
-  border-top: var(--border);
   display: flex;
+  height: 18px;
   justify-content: space-between;
   padding: var(--padding);
+  text-transform: uppercase;
 `
 
 const Title = styled.div`
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 600;
+`
+
+const Action = styled.div`
+  display: flex;
+  flex: 1;
+  margin-left: 50px;
 `
 
 const Subtitle = styled.div`
@@ -26,20 +33,35 @@ const Subtitle = styled.div`
   text-transform: uppercase;
 `
 
-const Content = styled.div`
-  padding: var(--padding);
-`
+const Content = styled.div``
 
 type Props = {
+  actionDisabled?: boolean
+  actionText?: string
   children: React.ReactNode
+  onAction?: () => void
   subtitle?: string
   title: string
 }
 
-export default ({ children, title, subtitle }: Props) => (
+export default ({
+  actionDisabled,
+  actionText,
+  children,
+  onAction,
+  title,
+  subtitle,
+}: Props) => (
   <Panel>
     <Header>
       <Title>{title}</Title>
+      {actionText && (
+        <Action>
+          <Button disabled={actionDisabled} onClick={onAction}>
+            {actionText}
+          </Button>
+        </Action>
+      )}
       <Subtitle>{subtitle}</Subtitle>
     </Header>
     <Content>{children}</Content>

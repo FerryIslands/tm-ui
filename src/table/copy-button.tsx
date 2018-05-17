@@ -5,6 +5,7 @@ import { Td } from './elements'
 
 const Button = styled.div`
   cursor: pointer;
+  height: 16px;
   position: relative;
 
   & > div {

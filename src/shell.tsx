@@ -7,29 +7,34 @@ export default styled.div`
   cursor: default;
   display: flex;
   flex-direction: column;
+  font-size: 13px;
   left: 0;
   position: absolute;
   right: 0;
   top: 50px;
 
-  --accent-active-color: #1c8e77;
-  --accent-color: #1ab394;
-  --accent-disabled-color: #9dddcf;
-  --accent-hover-color: #27a289;
+  --accent-active-color: #403b65;
+  --accent-color: #605a87;
+  --accent-disabled-color: #cccdcf;
+  --accent-hover-color: #504a75;
   --background-color: #f5f5f5;
   --border-color: #e7eaec;
   --border-hover-color: #ced3d6;
   --primary-color: #383838;
   --secondary-color: #737373;
 
+  --even-color: #eef3f6;
+  --even-alternate-color: #e1edf0;
+  --odd-color: #fff;
+  --odd-alternate-color: #f5fcfe;
+
   --border: solid 1px var(--border-color);
   --border-radius: 4px;
 
-  --padding: 15px;
+  --padding: 13px;
 
   * {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
-    font-size: 13px;
     outline: none;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
