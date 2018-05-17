@@ -31,7 +31,7 @@ export default function<T extends Row>({
 }: Props<T>) {
   return (
     <>
-      <Tr>
+      <Tr alternate>
         {onGroupSelectionChange && (
           <RowSelector
             disabled={group.items.every(rowDisabled)}

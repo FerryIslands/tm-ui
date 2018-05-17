@@ -50,17 +50,11 @@ type ThProps = {
 }
 
 export const Tr = styled.tr`
+  background: ${({ alternate }: TrProps) =>
+    alternate
+      ? 'var(--row-alternate-background-color)'
+      : 'var(--row-background-color)'};
   color: ${({ disabled }: TrProps) => disabled && 'rgba(40,40,40,.3)'};
-
-  &:nth-child(odd) {
-    background: ${({ alternate }: TrProps) =>
-      alternate ? 'var(--odd-alternate-color)' : 'var(--odd-color)'};
-  }
-
-  &:nth-child(even) {
-    background: ${({ alternate }: TrProps) =>
-      alternate ? 'var(--even-alternate-color)' : 'var(--even-color)'};
-  }
 `
 
 type TrProps = {

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Button from './button'
 
 const Panel = styled.div`
-  background: var(--even-color);
+  background: var(--row-alternate-background-color);
   border-top: var(--panel-border);
   flex: 1;
 `

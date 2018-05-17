@@ -23,10 +23,8 @@ export default styled.div`
   --primary-color: #383838;
   --secondary-color: #737373;
 
-  --even-color: #eef3f6;
-  --even-alternate-color: #e1edf0;
-  --odd-color: #fff;
-  --odd-alternate-color: #f5fcfe;
+  --row-background-color: #fff;
+  --row-alternate-background-color: #eef3f6;
 
   --border: solid 1px var(--border-color);
   --border-radius: 4px;
