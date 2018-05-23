@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { Copy } from '../icons'
-import { Td } from './elements'
+import { Copy } from './icons'
 
 const Button = styled.div`
   cursor: pointer;
@@ -26,7 +25,8 @@ const Tooltip = styled.div`
   background: #fff;
   border: var(--border);
   border-radius: var(--border-radius);
-  bottom: 25px;
+  bottom: -10px;
+  left: 150%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 10px;
   position: absolute;
@@ -41,7 +41,6 @@ const Input = styled.input`
   height: 1px;
   width: 1px;
 `
-
 type Props<T> = {
   row: T
   valueAccessor: (row: T) => string
@@ -57,7 +56,6 @@ export default class<T> extends React.Component<Props<T>, State> {
 
   constructor(props: Props<T>) {
     super(props)
-
     this.state = {
       status: 'Copy for TTB',
     }
@@ -91,13 +89,13 @@ export default class<T> extends React.Component<Props<T>, State> {
 
   render() {
     return (
-      <Td>
+      <div>
         <Input innerRef={input => (this.input = input)} />
         <Button onClick={this.copyToClipboard}>
           <Tooltip>{this.state.status}</Tooltip>
           <Copy />
         </Button>
-      </Td>
+      </div>
     )
   }
 }

@@ -1,7 +1,7 @@
 import * as React from 'react'
+import CopyButton from '../copy-button'
 import TableCell from './cell'
-import CopyButton from './copy-button'
-import { Tr } from './elements'
+import { Td, Tr } from './elements'
 import { Column, Row } from './model'
 import TableRow from './row'
 import RowSelector from './row-selector'
@@ -40,7 +40,9 @@ export default function<T extends Row>({
           />
         )}
         {clipboardValue && (
-          <CopyButton row={group} valueAccessor={clipboardValue} />
+          <Td>
+            <CopyButton row={group} valueAccessor={clipboardValue} />
+          </Td>
         )}
         {columns.map(column => (
           <TableCell

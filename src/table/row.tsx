@@ -1,6 +1,6 @@
 import * as React from 'react'
+import CopyButton from '../copy-button'
 import TableCell from './cell'
-import CopyButton from './copy-button'
 import { Td, Tr } from './elements'
 import { Column, Row } from './model'
 import RowSelector from './row-selector'
@@ -37,7 +37,9 @@ export default function<T extends Row>({
       )}
       {hideClipboardCopy && <Td />}
       {clipboardValue && (
-        <CopyButton row={row} valueAccessor={clipboardValue} />
+        <Td>
+          <CopyButton row={row} valueAccessor={clipboardValue} />
+        </Td>
       )}
       {columns.map(column => (
         <TableCell
