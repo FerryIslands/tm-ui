@@ -6,11 +6,11 @@ const Spinner = styled.div`
   width: 40px;
 
   stop {
-    stop-color: var(--accent-color);
+    stop-color: var(--secondary-color);
   }
 
   circle {
-    fill: var(--accent-color);
+    fill: var(--secondary-color);
   }
 
   svg > g {
