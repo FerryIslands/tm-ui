@@ -41,6 +41,7 @@ const Input = styled.input`
   height: 1px;
   width: 1px;
 `
+
 type Props<T> = {
   row: T
   valueAccessor: (row: T) => string
@@ -51,18 +52,21 @@ type State = {
 }
 
 export default class<T> extends React.Component<Props<T>, State> {
-  input?: HTMLInputElement | null
+  input: React.RefObject<HTMLInputElement>
   timer?: NodeJS.Timer
 
   constructor(props: Props<T>) {
     super(props)
+
     this.state = {
       status: 'Copy for TTB',
     }
+
+    this.input = React.createRef<HTMLInputElement>()
   }
 
   copyToClipboard = () => {
-    if (!this.input) {
+    if (!this.input.current) {
       return
     }
 
@@ -72,9 +76,9 @@ export default class<T> extends React.Component<Props<T>, State> {
 
     const value = this.props.valueAccessor(this.props.row)
 
-    this.input.value = value
-    this.input.focus()
-    this.input.select()
+    this.input.current.value = value
+    this.input.current.focus()
+    this.input.current.select()
 
     const successful = document.execCommand('copy')
 
@@ -90,7 +94,7 @@ export default class<T> extends React.Component<Props<T>, State> {
   render() {
     return (
       <div>
-        <Input innerRef={input => (this.input = input)} />
+        <Input innerRef={this.input} />
         <Button onClick={this.copyToClipboard}>
           <Tooltip>{this.state.status}</Tooltip>
           <Copy />
