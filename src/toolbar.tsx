@@ -8,7 +8,7 @@ export default styled.div`
   grid-template-columns: auto 1fr;
   padding: var(--padding);
 
-  --field-background-color: #6f7e90;
+  --field-background-color: #4a5d73;
   --field-alternate-background-color: #b9d8df;
   --field-alternate-text-color: #226f81;
   --field-font-size: 14px;
@@ -20,5 +20,5 @@ export default styled.div`
   --field-symbol-color: rgba(255, 255, 255, 0.3);
   --field-text-color: #fff;
 
-  --toolbar-background-color: #4a5d73;
+  --toolbar-background-color: #2e4662;
 `

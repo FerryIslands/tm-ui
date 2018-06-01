@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  background: var(--background-color);
   bottom: 0;
   color: var(--primary-color);
   cursor: default;
@@ -17,7 +16,6 @@ export default styled.div`
   --accent-color: #605a87;
   --accent-disabled-color: #cccdcf;
   --accent-hover-color: #504a75;
-  --background-color: #f5f5f5;
   --border-color: #e7eaec;
   --border-hover-color: #ced3d6;
   --primary-color: #383838;
