@@ -36,6 +36,10 @@ export default (props: any) => (
         ...base,
         backgroundColor: 'var(--field-symbol-color)',
       }),
+      menu: (base: any) => ({
+        ...base,
+        zIndex: 2,
+      }),
       multiValue: (base: any) => ({
         ...base,
         backgroundColor: 'var(--field-alternate-background-color)',

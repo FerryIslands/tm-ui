@@ -63,10 +63,12 @@ const Wrapper = styled.div`
 
   .DateInput_fang {
     margin-top: -15px;
+    z-index: 3;
   }
 
   .DateRangePicker_picker {
     margin-top: -16px;
+    z-index: 2;
   }
 
   .CalendarMonth_caption {
