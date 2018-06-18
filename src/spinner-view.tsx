@@ -6,6 +6,7 @@ const SpinnerView = styled.div`
   align-items: center;
   display: flex;
   height: 100%;
+  margin: auto;
   justify-content: center;
 `
 
