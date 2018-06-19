@@ -24,16 +24,28 @@ const Details = styled.div`
 `
 
 type Props = {
-  errors: Error[]
+  error: Error
   onBack?: () => void
 }
 
-export default ({ errors, onBack }: Props) => (
+export default ({ error, onBack }: Props) => (
   <Error>
-    <Header>An error occurred</Header>
-    <Details>
-      {errors.map(error => <div key={error.message}>{error.message}</div>)}
-    </Details>
-    {onBack && <Button onClick={onBack}>Back</Button>}
+    {is401Error(error) ? (
+      <>
+        <Header>You have been logged out</Header>
+        <Details>Please sign in again to continue.</Details>
+        <Button onClick={() => location.reload()}>Sign in</Button>
+      </>
+    ) : (
+      <>
+        <Header>An error occurred</Header>
+        <Details>{error.message}</Details>
+        {onBack && <Button onClick={onBack}>Back</Button>}
+      </>
+    )}
   </Error>
 )
+
+function is401Error(error: any) {
+  return error.networkError && error.networkError.statusCode === 401
+}
