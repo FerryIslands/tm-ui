@@ -213,6 +213,7 @@ test('group 1 column and sort descending', () => {
     },
   ])
 })
+
 test('group 2 columns and sort', () => {
   expect(
     grouper(['nationality', 'team'], topScorers, {
@@ -284,6 +285,81 @@ test('group 2 columns and sort', () => {
       ],
       nationality: 'Norge',
       team: 'Brommapojkarna',
+    },
+  ])
+})
+
+test('group 2 columns with 1 group key same', () => {
+  expect(
+    grouper(
+      ['routeCode', 'departureDateTime'],
+      [
+        {
+          componentCode: 'GENPASS / B571 / 3',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'BFLP',
+        },
+        {
+          componentCode: 'FRYCARDSPDEP / HIGH420',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'BFLP',
+        },
+        {
+          componentCode: 'GENVEH / A_GBP / 129',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'LPBF',
+        },
+        {
+          componentCode: 'GENVEH / A_GBP / 129',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'BFLP',
+        },
+        {
+          componentCode: 'FRYCARDSPDEP / HIGH420',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'BFLP',
+        },
+      ],
+    ),
+  ).toEqual([
+    {
+      departureDateTime: '2018-07-01 10:30',
+      id: 'BFLP - 2018-07-01 10:30',
+      items: [
+        {
+          componentCode: 'GENPASS / B571 / 3',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'BFLP',
+        },
+        {
+          componentCode: 'FRYCARDSPDEP / HIGH420',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'BFLP',
+        },
+        {
+          componentCode: 'GENVEH / A_GBP / 129',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'BFLP',
+        },
+        {
+          componentCode: 'FRYCARDSPDEP / HIGH420',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'BFLP',
+        },
+      ],
+      routeCode: 'BFLP',
+    },
+    {
+      departureDateTime: '2018-07-01 10:30',
+      id: 'LPBF - 2018-07-01 10:30',
+      items: [
+        {
+          componentCode: 'GENVEH / A_GBP / 129',
+          departureDateTime: '2018-07-01 10:30',
+          routeCode: 'LPBF',
+        },
+      ],
+      routeCode: 'LPBF',
     },
   ])
 })

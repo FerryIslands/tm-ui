@@ -38,12 +38,14 @@ export function grouper<T>(
       return [...accumulator, current]
     }, [])
     .map((groupName: Array<T[keyof T]>) => {
-      const group: any = { items: [] }
+      const group: any = {
+        id: groupName.join(' - '),
+        items: rows.slice(),
+      }
 
       groupName.forEach((name, i) => {
         group[groupBy[i]] = name
-        group.id = groupName.join(' - ')
-        group.items = rows.filter(row => row[groupBy[i]] === name)
+        group.items = group.items.filter((row: any) => row[groupBy[i]] === name)
       })
 
       return group
