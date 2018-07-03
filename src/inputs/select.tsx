@@ -36,6 +36,10 @@ export default (props: any) => (
         ...base,
         backgroundColor: 'var(--field-symbol-color)',
       }),
+      input: (base: any) => ({
+        ...base,
+        color: 'white',
+      }),
       menu: (base: any) => ({
         ...base,
         zIndex: 2,
