@@ -15,6 +15,11 @@ const Header = styled.div`
   justify-content: space-between;
   padding: var(--padding);
   text-transform: uppercase;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  background-color: var(--row-alternate-background-color);
+  top: 62px;
 `
 
 const Title = styled.div`
@@ -31,6 +36,7 @@ const Action = styled.div`
 const Subtitle = styled.div`
   font-size: 12px;
   text-transform: uppercase;
+  margin-right: 25px;
 `
 
 const Content = styled.div``
