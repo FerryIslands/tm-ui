@@ -2,6 +2,10 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { Copy } from './icons'
 
+const Wrapper = styled.div`
+  position: relative;
+`
+
 const Button = styled.div`
   cursor: pointer;
   height: 16px;
@@ -93,13 +97,13 @@ export default class<T> extends React.Component<Props<T>, State> {
 
   render() {
     return (
-      <div>
+      <Wrapper>
         <Input innerRef={this.input} />
         <Button onClick={this.copyToClipboard}>
           <Tooltip>{this.state.status}</Tooltip>
           <Copy />
         </Button>
-      </div>
+      </Wrapper>
     )
   }
 }
