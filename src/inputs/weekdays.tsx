@@ -25,7 +25,9 @@ export const Weekday = styled.button`
       ? 'var(--field-alternate-background-color)'
       : 'var(--field-background-color)'};
   color: ${({ checked }: ButtonProps) =>
-    checked ? 'var(--toolbar-background-color)' : 'var(--field-text-color)'};
+    checked
+      ? 'var(--toolbar-background-color)'
+      : 'var(--field-placeholder-color)'};
   border-radius: var(--border-radius);
   border: none;
 `
