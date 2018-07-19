@@ -1,33 +1,73 @@
+import * as React from 'react'
 import styled from 'styled-components'
 
 type ButtonProps = {
   checked?: boolean
 }
 
-export const Days = styled.div`
+const Days = styled.div`
   background-color: transparent;
-  min-width: 300px;
-  display: flex;
-  justify-content: space-between;
-  padding: 3px 0;
-  border-radius: 3px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1px;
 `
 
-export const Weekday = styled.button`
-  display: flex;
-  justify-content: center;
+const Weekday = styled.button`
   align-items: center;
-  font-weight: 700;
-  font-size: 14px;
-  width: 30px;
   background-color: ${({ checked }: ButtonProps) =>
     checked
       ? 'var(--field-alternate-background-color)'
       : 'var(--field-background-color)'};
+  border: none;
   color: ${({ checked }: ButtonProps) =>
     checked
-      ? 'var(--toolbar-background-color)'
-      : 'var(--field-placeholder-color)'};
-  border-radius: var(--border-radius);
-  border: none;
+      ? 'var(--field-alternate-text-color)'
+      : 'var(--field-symbol-color)'};
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  font-weight: 700;
+  justify-content: center;
+  width: 36px;
+
+  &:first-child {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+  }
+
+  &:last-child {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  }
 `
+
+const weekdays = [
+  { label: 'M', key: 2 },
+  { label: 'T', key: 3 },
+  { label: 'W', key: 4 },
+  { label: 'T', key: 5 },
+  { label: 'F', key: 6 },
+  { label: 'S', key: 7 },
+  { label: 'S', key: 1 },
+]
+
+type Props = {
+  onChange: (selectedWeekday: number) => void
+  selectedWeekdays: number[]
+}
+
+export default class WeekdayPicker extends React.PureComponent<Props> {
+  render() {
+    return (
+      <Days>
+        {weekdays.map(day => (
+          <Weekday
+            checked={this.props.selectedWeekdays.some(d => d === day.key)}
+            key={day.key}
+            onClick={() => this.props.onChange(day.key)}
+          >
+            {day.label}
+          </Weekday>
+        ))}
+      </Days>
+    )
+  }
+}

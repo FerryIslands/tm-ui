@@ -26,5 +26,5 @@
     "build": "tsc",
     "test": "jest"
   },
-  "version": "v1.0.27"
+  "version": "v1.0.28"
 }

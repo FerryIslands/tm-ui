@@ -38,7 +38,10 @@ export default (props: any) => (
       }),
       input: (base: any) => ({
         ...base,
-        color: 'white',
+        color: 'var(--field-text-color)',
+        fontSize: 'var(--field-font-size)',
+        fontWeight: 'var(--field-font-weight)',
+        letterSpacing: 'var(--field-letter-spacing)',
       }),
       menu: (base: any) => ({
         ...base,
@@ -66,11 +69,19 @@ export default (props: any) => (
           backgroundColor: '#eaeaea',
         },
         backgroundColor: state.isFocused ? '#fafafa' : '',
+        color: 'var(--primary-color)',
         cursor: 'pointer',
       }),
       placeholder: (base: any) => ({
         ...base,
         color: 'var(--field-placeholder-color)',
+        fontSize: 'var(--field-font-size)',
+        fontWeight: 'var(--field-font-weight)',
+        letterSpacing: 'var(--field-letter-spacing)',
+      }),
+      singleValue: (base: any) => ({
+        ...base,
+        color: 'var(--field-text-color)',
         fontSize: 'var(--field-font-size)',
         fontWeight: 'var(--field-font-weight)',
         letterSpacing: 'var(--field-letter-spacing)',
