@@ -1,16 +1,24 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
+type Props = {
+  width?: number
+  height?: number
+  color?: string
+}
+
 const Spinner = styled.div`
-  height: 40px;
-  width: 40px;
+  ${({ width }: Props) => (width ? `width: ${width}px;` : '')} ${({
+    height,
+  }: Props) => (height ? `height: ${height}px;` : '')}
 
   stop {
-    stop-color: var(--secondary-color);
+    stop-color: ${({ color }: Props) =>
+      color ? color : 'var(--secondary-color)'};
   }
 
   circle {
-    fill: var(--secondary-color);
+    fill: ${({ color }: Props) => (color ? color : 'var(--secondary-color)')};
   }
 
   svg > g {
@@ -19,8 +27,8 @@ const Spinner = styled.div`
   }
 `
 
-export default () => (
-  <Spinner>
+export default ({ width, height, color }: Props) => (
+  <Spinner width={width} height={height} color={color}>
     <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
