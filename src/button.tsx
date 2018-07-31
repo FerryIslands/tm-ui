@@ -15,7 +15,7 @@ type Props = {
 const Button = styled.button`
   align-items: center;
   background: ${({ secondary }: Props) =>
-    secondary ? '#7F8D9D' : 'var(--accent)'};
+    secondary ? '#7F8D9D' : 'var(--accent-color)'};
   border: 0;
   border-radius: var(--border-radius);
   color: #fff;
@@ -78,7 +78,7 @@ export default ({
   text,
 }: Props) => (
   <Button disabled={disabled} onClick={onClick} isLoading={isLoading}>
-    {iconPosition === 'right' && <Text>{text}</Text>}
+    {(iconPosition === 'right' || !icon) && <Text>{text}</Text>}
     {isLoading ? <Spinner width={24} color={'#fff'} /> : icon}
     {iconPosition === 'left' && <Text>{text}</Text>}
   </Button>
