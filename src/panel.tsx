@@ -63,9 +63,11 @@ export default ({
       <Title>{title}</Title>
       {actionText && (
         <Action>
-          <Button disabled={actionDisabled} onClick={onAction}>
-            {actionText}
-          </Button>
+          <Button
+            disabled={actionDisabled}
+            onClick={onAction}
+            text={actionText}
+          />
         </Action>
       )}
       <Subtitle>{subtitle}</Subtitle>
