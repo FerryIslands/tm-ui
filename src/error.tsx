@@ -34,13 +34,13 @@ export default ({ error, onBack }: Props) => (
       <>
         <Header>You have been logged out</Header>
         <Details>Please sign in again to continue.</Details>
-        <Button onClick={() => location.reload()}>Sign in</Button>
+        <Button onClick={() => location.reload()} text="Sign in" />
       </>
     ) : (
       <>
         <Header>An error occurred</Header>
         <Details>{error.message}</Details>
-        {onBack && <Button onClick={onBack}>Back</Button>}
+        {onBack && <Button onClick={onBack} text="Back" />}
       </>
     )}
   </Error>
