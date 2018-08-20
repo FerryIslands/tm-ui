@@ -98,7 +98,7 @@ export default class<T> extends React.Component<Props<T>, State> {
   render() {
     return (
       <Wrapper>
-        <Input innerRef={this.input} />
+        <Input innerRef={this.input} tabIndex={-1} />
         <Button onClick={this.copyToClipboard}>
           <Tooltip>{this.state.status}</Tooltip>
           <Copy />

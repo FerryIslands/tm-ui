@@ -37,6 +37,10 @@ const Weekday = styled.button`
   &:last-child {
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
   }
+
+  &:focus {
+    border: 1px solid var(--secondary-color);
+  }
 `
 
 const weekdays = [
