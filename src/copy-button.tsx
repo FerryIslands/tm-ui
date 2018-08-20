@@ -25,15 +25,20 @@ const Button = styled.div`
   }
 `
 
+type TooltipProps = {
+  right?: boolean
+}
+
 const Tooltip = styled.div`
   background: #fff;
-  border: var(--border);
   border-radius: var(--border-radius);
+  border: var(--border);
   bottom: -10px;
-  left: 150%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  left: ${({ right }: TooltipProps) => (right ? '' : '150%')};
   padding: 10px;
   position: absolute;
+  right: ${({ right }: TooltipProps) => (right ? '-5px' : '')};
   white-space: nowrap;
 `
 
@@ -47,6 +52,7 @@ const Input = styled.input`
 `
 
 type Props<T> = {
+  right?: boolean
   row: T
   valueAccessor: (row: T) => string
 }
@@ -100,7 +106,7 @@ export default class<T> extends React.Component<Props<T>, State> {
       <Wrapper>
         <Input innerRef={this.input} tabIndex={-1} />
         <Button onClick={this.copyToClipboard}>
-          <Tooltip>{this.state.status}</Tooltip>
+          <Tooltip right={this.props.right}>{this.state.status}</Tooltip>
           <Copy />
         </Button>
       </Wrapper>
