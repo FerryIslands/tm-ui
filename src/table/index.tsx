@@ -11,6 +11,8 @@ type Props<T extends Row> = {
   columns: Array<Column<T>>
   data: T[]
   groupBy?: Array<keyof T>
+  onFocusChange: (row: Partial<T>) => void
+  isFocused: Partial<T>
   onSelectionChange?: (selection: T[]) => void
   rowDisabled?: (row: T) => boolean
   selection: T[]
@@ -71,6 +73,8 @@ export default class<T extends Row> extends React.PureComponent<
       columns,
       data,
       groupBy,
+      isFocused,
+      onFocusChange,
       onSelectionChange,
       selection,
       sortColumn,
@@ -110,9 +114,11 @@ export default class<T extends Row> extends React.PureComponent<
                 <TableGroup
                   columns={columns}
                   clipboardValue={clipboardValue}
+                  isFocused={isFocused}
                   key={group.id}
                   group={group}
                   groupBy={groupBy}
+                  onFocusChange={onFocusChange}
                   onGroupSelectionChange={
                     onSelectionChange &&
                     this.handleRowsSelectionChange(group.items)
@@ -131,9 +137,11 @@ export default class<T extends Row> extends React.PureComponent<
                 <TableRow
                   clipboardValue={clipboardValue}
                   columns={columns}
+                  onFocusChange={onFocusChange}
                   onSelectionChange={
                     onSelectionChange && this.handleRowSelectionChange(row)
                   }
+                  isFocused={isFocused ? isFocused.id === row.id : false}
                   key={row.id}
                   row={row}
                   rowDisabled={this.rowDisabled}

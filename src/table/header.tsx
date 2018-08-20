@@ -28,6 +28,7 @@ export default function<T>({
     <Tr>
       {onSelectionChange && (
         <RowSelector
+          autoFocus
           disabled={selectionDisabled}
           onSelectionChange={onSelectionChange}
           selected={selected}
@@ -41,9 +42,7 @@ export default function<T>({
           sortable={!!onSort && sortColumn === key}
           sortDirection={
             columnSorting && columnSorting.column === key
-              ? columnSorting.desc
-                ? 'desc'
-                : 'asc'
+              ? columnSorting.desc ? 'desc' : 'asc'
               : undefined
           }
         >
