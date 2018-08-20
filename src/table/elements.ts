@@ -56,11 +56,14 @@ export const Tr = styled.tr`
       ? 'var(--row-alternate-background-color)'
       : 'var(--row-background-color)'};
   color: ${({ disabled }: TrProps) => disabled && 'rgba(40,40,40,.3)'};
+
+  filter: ${({ isFocused }: TrProps) => (isFocused ? 'brightness(97%)' : '')};
 `
 
 type TrProps = {
   alternate?: boolean
   disabled?: boolean
+  isFocused?: boolean
 }
 
 export const Td = styled.td`

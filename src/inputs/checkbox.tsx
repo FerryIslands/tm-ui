@@ -13,6 +13,10 @@ const Button = styled.button`
   padding: 0;
   width: 20px;
 
+  &:focus {
+    border: 1px solid var(--secondary-color);
+  }
+
   & svg {
     fill: #fff;
     height: 11px;
@@ -31,12 +35,19 @@ type ButtonProps = {
 }
 
 type Props = {
+  autoFocus?: boolean
+  checkboxRef?: React.RefObject<HTMLButtonElement>
   checked?: boolean
   onChange: (checked: boolean) => void
 }
 
-export default ({ checked, onChange }: Props) => (
-  <Button checked={checked} onClick={() => onChange(!checked)}>
+export default ({ autoFocus, checkboxRef, checked, onChange }: Props) => (
+  <Button
+    autoFocus={autoFocus}
+    checked={checked}
+    innerRef={checkboxRef}
+    onClick={() => onChange(!checked)}
+  >
     <Check />
   </Button>
 )
