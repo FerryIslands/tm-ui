@@ -42,15 +42,6 @@ const Tooltip = styled.div`
   white-space: nowrap;
 `
 
-const Input = styled.input`
-  border: 0;
-  background: transparent;
-  color: transparent;
-  position: absolute;
-  height: 1px;
-  width: 1px;
-`
-
 type Props<T> = {
   right?: boolean
   row: T
@@ -62,7 +53,6 @@ type State = {
 }
 
 export default class<T> extends React.Component<Props<T>, State> {
-  input: React.RefObject<HTMLInputElement>
   timer?: NodeJS.Timer
 
   constructor(props: Props<T>) {
@@ -71,26 +61,15 @@ export default class<T> extends React.Component<Props<T>, State> {
     this.state = {
       status: 'Copy for TTB',
     }
-
-    this.input = React.createRef<HTMLInputElement>()
   }
 
   copyToClipboard = () => {
-    if (!this.input.current) {
-      return
-    }
-
     if (this.timer) {
       clearTimeout(this.timer)
     }
 
     const value = this.props.valueAccessor(this.props.row)
-
-    this.input.current.value = value
-    this.input.current.focus()
-    this.input.current.select()
-
-    const successful = document.execCommand('copy')
+    const successful = copyToClipboard(value)
 
     this.setState({
       status: successful ? 'Copied!' : 'Failed to copy!',
@@ -104,7 +83,6 @@ export default class<T> extends React.Component<Props<T>, State> {
   render() {
     return (
       <Wrapper>
-        <Input innerRef={this.input} tabIndex={-1} />
         <Button onClick={this.copyToClipboard}>
           <Tooltip right={this.props.right}>{this.state.status}</Tooltip>
           <Copy />
@@ -112,4 +90,21 @@ export default class<T> extends React.Component<Props<T>, State> {
       </Wrapper>
     )
   }
+}
+
+export const copyToClipboard = (text: string) => {
+  const activeElement = document.activeElement as HTMLElement
+  const input = document.createElement('input')
+
+  input.style.position = 'fixed'
+  document.body.appendChild(input)
+  input.value = text
+  input.select()
+
+  const successful = document.execCommand('copy')
+
+  document.body.removeChild(input)
+  activeElement.focus()
+
+  return successful
 }
