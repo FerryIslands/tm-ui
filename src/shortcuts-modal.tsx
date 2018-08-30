@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { Close } from './icons'
 
 type Shortcuts = {
   description: string
@@ -13,10 +14,12 @@ type Props = {
   showModal: boolean
 }
 
-const Button = styled.button`
-  border: none;
-  color: #888;
-  font-size: 30px;
+const Button = styled.div`
+  background: #d05353;
+  border-radius: 4px;
+  color: #fff;
+  padding: 2px 5px 0px;
+  width: 13px;
 
   &:hover {
     opacity: 0.6;
@@ -26,51 +29,56 @@ const Button = styled.button`
 
 const Content = styled.div`
   background-color: #fefefe;
-  border-radius: 3px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
   margin: 15% auto;
   padding: 20px;
-  border: 2px solid #888;
   width: 30%;
 `
 
 const Header = styled.div`
   display: flex;
-  align-items: center;
-  height: 40px;
+  align-items: top;
   justify-content: space-between;
+  margin-bottom: 5px;
 `
 
 const Modal = styled.div`
-  position: fixed;
-  z-index: 2;
+  background-color: rgba(0,0,0,0.1);
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
+  height: 100%;
   left: 0;
+  overflow: auto;
+  position: fixed;
   top: 0;
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  z-index: 2;
 }
 `
 
 const Shortcut = styled.div`
   display: flex;
-  border-bottom: 1px solid #888;
-  padding: 5px 0px;
+  border-bottom: 1px solid #d3dbe0;
+  padding: 7px 0px;
 `
 
 const Text = styled.div`
-  font-size: 15px;
+  font-size: 13px;
 
   &:first-child {
     width: 180px;
   }
 
   kbd {
-    background-color: #f5f5f5;
-    border-style: solid;
-    border-width: 1px 2px 2px 1px;
-    padding: 0 1px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+    color: #333;
+    display: inline-block;
+    font-size: 11px;
+    margin: 0 0.1em;
+    padding: 0.1em 0.6em;
   }
 `
 
@@ -90,8 +98,12 @@ export default class extends React.PureComponent<Props> {
         <Modal>
           <Content>
             <Header>
-              <h2>Keyboard shortcuts</h2>
-              <Button onClick={onClose}>×</Button>
+              <div style={{ fontSize: '18px', fontWeight: 600 }}>
+                Keyboard shortcuts
+              </div>
+              <Button onClick={onClose}>
+                <Close />
+              </Button>
             </Header>
             <div>{description}</div>
             <br />
@@ -101,7 +113,7 @@ export default class extends React.PureComponent<Props> {
                   {shortcut.keys.map((key, index) => (
                     <span key={key + index}>
                       <kbd>{key}</kbd>
-                      {index + 1 < shortcut.keys.length ? ' + ' : ''}
+                      {index + 1 < shortcut.keys.length ? '+' : ''}
                     </span>
                   ))}
                 </Text>
