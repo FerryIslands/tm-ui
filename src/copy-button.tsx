@@ -40,6 +40,7 @@ const Tooltip = styled.div`
   position: absolute;
   right: ${({ right }: TooltipProps) => (right ? '-5px' : '')};
   white-space: nowrap;
+  z-index: 1;
 `
 
 type Props<T> = {
