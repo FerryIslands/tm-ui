@@ -2,15 +2,14 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 type Props = {
-  width?: number
-  height?: number
   color?: string
+  size?: number
 }
 
 const Spinner = styled.div`
-  ${({ width }: Props) => (width ? `width: ${width}px;` : '')} ${({
-    height,
-  }: Props) => (height ? `height: ${height}px;` : '')}
+  ${({ size }: Props) => (size ? `width: ${size}px;` : '')} ${({
+    size,
+  }: Props) => (size ? `height: ${size}px;` : '')}
 
   stop {
     stop-color: ${({ color }: Props) =>
@@ -27,8 +26,8 @@ const Spinner = styled.div`
   }
 `
 
-export default ({ width, height, color }: Props) => (
-  <Spinner width={width} height={height} color={color}>
+export default ({ color, size }: Props) => (
+  <Spinner color={color} size={size}>
     <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
@@ -43,7 +42,7 @@ export default ({ width, height, color }: Props) => (
             d="M36 18c0-9.94-8.06-18-18-18"
             id="Oval-2"
             stroke="url(#a)"
-            strokeWidth="3"
+            strokeWidth={size ? size / 5 : 3}
           >
             <animateTransform
               attributeName="transform"

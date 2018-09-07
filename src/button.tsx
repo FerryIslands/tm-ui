@@ -26,47 +26,41 @@ const Button = styled.button`
   height: 34px;
   padding: 0 12px;
 
+  & > svg {
+    height: 16px;
+    margin: 0 2px;
+  }
+
   ${({ disabled }: Props) =>
     disabled
       ? `
-background: #cccdcf;
-color: #8c9196;
-fill: #8c9196;`
+        background: #cccdcf;
+        color: #8c9196;
+        fill: #8c9196;`
       : `
-cursor: pointer;
+        cursor: pointer;
 
-&:hover {
-  opacity: 0.9;
-}
+        &:hover {
+          opacity: 0.9;
+        }
 
-&:active {
-  opacity: 0.7;
-  padding: 1px 11px 0 13px;
-}
-
-`} svg {
-    height: 16px;
-  }
-
-  svg:first-child:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  svg:last-child:not(:first-child) {
-    margin-left: 8px;
-  }
+        &:active {
+          opacity: 0.7;
+          padding: 1px 11px 0 13px;
+        }
+    `};
 
   ${({ isLoading }: Props) =>
-    isLoading
-      ? `
-  background: #2D284D;
-  color: #8c9196;
-  cursor: default;
-  svg {
-      height: 24px;
-    }
-  `
-      : ``};
+    isLoading &&
+    `
+      background: #8d8ba0;
+      color: #c7c5d4;
+      cursor: default;
+    `};
+`
+
+const Text = styled.div`
+  margin-right: 8px;
 `
 
 export default ({
@@ -77,11 +71,13 @@ export default ({
   onClick,
   text,
 }: Props) => (
-  <Button disabled={disabled} onClick={onClick} isLoading={isLoading}>
+  <Button
+    disabled={disabled || isLoading}
+    isLoading={isLoading}
+    onClick={onClick}
+  >
     {(iconPosition === 'right' || !icon) && <Text>{text}</Text>}
-    {isLoading ? <Spinner width={24} color={'#fff'} /> : icon}
+    {isLoading ? <Spinner color="#c7c5d4" size={20} /> : icon}
     {iconPosition === 'left' && <Text>{text}</Text>}
   </Button>
 )
-
-const Text = styled.div``
