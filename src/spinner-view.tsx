@@ -22,7 +22,7 @@ type Props = {
 
 export default ({ text }: Props) => (
   <SpinnerView>
-    <Spinner width={40} height={40} />
+    <Spinner size={40} />
     {text && <Text>{text}</Text>}
   </SpinnerView>
 )
