@@ -100,6 +100,16 @@ const Wrapper = styled.div`
     background: transparent;
     color: var(--disabled-text-color);
   }
+
+  .CalendarDay__today,
+  .CalendarDay__today:hover {
+    background: var(--selected-text-color);
+    color: #fff;
+  }
+
+  .CalendarDay__default:hover {
+    opacity: 0.7;
+  }
 `
 
 type Period = {
