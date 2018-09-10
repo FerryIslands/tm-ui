@@ -89,7 +89,7 @@ export default class extends React.PureComponent<Props> {
     if (navigator.userAgent.indexOf('Mac OS X') !== -1) {
       commands = shortcuts.map(s => ({
         description: s.description,
-        keys: s.keys.map(k => k.replace('ctrl', 'cmd').replace('alt', 'opt')),
+        keys: s.keys.map(k => k.replace('Ctrl', 'Cmd').replace('Alt', 'Opt')),
       }))
     }
 
