@@ -103,8 +103,8 @@ const Wrapper = styled.div`
 
   .CalendarDay__today,
   .CalendarDay__today:hover {
-    background: var(--selected-text-color);
-    color: #fff;
+    background: var(--field-alternate-background-color);
+    color: var(--field-alternate-text-color);
   }
 
   .CalendarDay__default:hover {
