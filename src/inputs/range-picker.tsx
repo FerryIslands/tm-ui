@@ -148,6 +148,7 @@ export default class RangePicker extends React.Component<Props, State> {
           focusedInput={this.state.focusedInput}
           hideKeyboardShortcutsPanel
           isOutsideRange={() => false}
+          minimumNights={0}
           onDatesChange={({ endDate, startDate }) => {
             this.setState({ endDate, startDate })
             this.props.onDatesChange({ endDate, startDate })
