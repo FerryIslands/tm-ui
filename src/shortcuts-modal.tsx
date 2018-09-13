@@ -85,7 +85,7 @@ const Text = styled.div`
 export default class extends React.PureComponent<Props> {
   render() {
     const { description, onClose, shortcuts } = this.props
-    let commands = { ...shortcuts }
+    let commands = [...shortcuts]
     if (navigator.userAgent.indexOf('Mac OS X') !== -1) {
       commands = shortcuts.map(s => ({
         description: s.description,
