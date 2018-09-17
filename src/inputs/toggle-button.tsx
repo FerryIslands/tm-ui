@@ -15,13 +15,18 @@ const Input = styled.input`
 `
 
 type Props = {
+  checked?: boolean
   label: string
   onChange: (checked: boolean) => void
 }
 
-export default ({ label, onChange }: Props) => (
+export default ({ checked, label, onChange }: Props) => (
   <Label>
-    <Input onChange={e => onChange(e.target.checked)} type="checkbox" />
+    <Input
+      checked={checked}
+      onChange={e => onChange(e.target.checked)}
+      type="checkbox"
+    />
     {label}
   </Label>
 )

@@ -3,8 +3,8 @@ import Select from 'react-select'
 
 export default (props: any) => (
   <Select
-    {...props}
     closeMenuOnSelect={false}
+    {...props}
     styles={{
       clearIndicator: (base: any) => ({
         ...base,
