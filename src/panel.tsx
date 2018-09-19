@@ -10,31 +10,34 @@ const Panel = styled.div`
 
 const Header = styled.div`
   align-items: center;
-  display: flex;
-  height: 18px;
-  justify-content: space-between;
-  padding: var(--padding);
-  text-transform: uppercase;
+  background-color: var(--row-alternate-background-color);
+  display: grid;
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  grid-template-columns: auto auto auto 1fr;
+  height: 45px;
+  padding: 0 var(--padding);
   position: absolute;
+  text-transform: uppercase;
+  top: 62px;
   width: 100%;
   z-index: 1;
-  background-color: var(--row-alternate-background-color);
-  top: 62px;
 `
 
 const Title = styled.div`
   font-size: 16px;
   font-weight: 600;
+  margin-right: 40px;
 `
 
 const Action = styled.div`
   display: flex;
-  flex: 1;
-  margin-left: 50px;
 `
 
 const Subtitle = styled.div`
+  flex: 1;
   font-size: 12px;
+  text-align: right;
   text-transform: uppercase;
   margin-right: 25px;
 `
@@ -46,6 +49,8 @@ type Props = {
   actionText?: string
   children: React.ReactNode
   onAction?: () => void
+  onSecondaryAction?: () => void
+  secondaryActionText?: string
   subtitle?: string
   title: string
 }
@@ -55,7 +60,9 @@ export default ({
   actionText,
   children,
   onAction,
+  onSecondaryAction,
   title,
+  secondaryActionText,
   subtitle,
 }: Props) => (
   <Panel>
@@ -67,6 +74,15 @@ export default ({
             disabled={actionDisabled}
             onClick={onAction}
             text={actionText}
+          />
+        </Action>
+      )}
+      {secondaryActionText && (
+        <Action>
+          <Button
+            disabled={actionDisabled}
+            onClick={onSecondaryAction}
+            text={secondaryActionText}
           />
         </Action>
       )}
