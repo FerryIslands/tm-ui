@@ -1,29 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { IconButton } from './icon-button'
 import { Copy } from './icons'
-
-const Wrapper = styled.div`
-  position: relative;
-`
-
-const Button = styled.div`
-  cursor: pointer;
-  height: 16px;
-  position: relative;
-
-  & > div {
-    display: none;
-  }
-
-  &:hover > div {
-    display: block;
-  }
-
-  & > svg {
-    fill: var(--secondary-color);
-    height: 16px;
-  }
-`
 
 type TooltipProps = {
   right?: boolean
@@ -83,12 +61,9 @@ export default class<T> extends React.Component<Props<T>, State> {
 
   render() {
     return (
-      <Wrapper>
-        <Button onClick={this.copyToClipboard}>
-          <Tooltip right={this.props.right}>{this.state.status}</Tooltip>
-          <Copy />
-        </Button>
-      </Wrapper>
+      <IconButton icon={Copy} onClick={this.copyToClipboard}>
+        <Tooltip right={this.props.right}>{this.state.status}</Tooltip>
+      </IconButton>
     )
   }
 }
