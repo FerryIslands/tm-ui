@@ -142,7 +142,6 @@ export default class RangePicker extends React.Component<Props, State> {
     return (
       <Wrapper>
         <DateRangePicker
-          displayFormat="YYYY-MM-DD"
           endDate={this.state.endDate}
           endDateId="range-picker-end-date"
           focusedInput={this.state.focusedInput}
