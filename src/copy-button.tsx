@@ -28,7 +28,7 @@ type Props<T> = {
 }
 
 type State = {
-  status: 'Copy for TTB' | 'Copied!' | 'Failed to copy!'
+  status: 'Copy for Freightlink/TTB' | 'Copied!' | 'Failed to copy!'
 }
 
 export default class<T> extends React.Component<Props<T>, State> {
@@ -38,7 +38,7 @@ export default class<T> extends React.Component<Props<T>, State> {
     super(props)
 
     this.state = {
-      status: 'Copy for TTB',
+      status: 'Copy for Freightlink/TTB',
     }
   }
 
@@ -55,7 +55,7 @@ export default class<T> extends React.Component<Props<T>, State> {
     })
 
     this.timer = setTimeout(() => {
-      this.setState({ status: 'Copy for TTB' })
+      this.setState({ status: 'Copy for Freightlink/TTB' })
     }, 2000)
   }
 
