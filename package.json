@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@types/react-dates": "^17.1.2",
     "moment": "^2.22.2",
     "react": "^16.5.2",
     "react-dates": "^18.1.0",
@@ -12,6 +11,7 @@
   "devDependencies": {
     "@types/jest": "^23.3.2",
     "@types/react": "^16.4.14",
+    "@types/react-dates": "^17.1.2",
     "@types/react-dom": "^16.0.7",
     "jest": "^23.6.0",
     "ts-jest": "^23.10.1",
@@ -26,5 +26,5 @@
     "build": "tsc",
     "test": "jest"
   },
-  "version": "v1.0.53"
+  "version": "v1.0.54"
 }

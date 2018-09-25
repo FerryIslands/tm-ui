@@ -30,7 +30,7 @@ const Button = styled.div`
 `
 
 type Props = {
-  icon: React.StatelessComponent
+  icon: any
   iconColor?: string
   onClick: () => void
 }
