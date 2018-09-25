@@ -32,7 +32,7 @@ type State = {
 }
 
 export default class<T> extends React.Component<Props<T>, State> {
-  timer?: NodeJS.Timer
+  timer: any
 
   constructor(props: Props<T>) {
     super(props)
