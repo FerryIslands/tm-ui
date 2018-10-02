@@ -22,7 +22,7 @@ export default (props: any) => (
         borderWidth: 0,
         boxShadow: 'none',
         minHeight: 'auto',
-        minWidth: props.minWidth || 'auto',
+        minWidth: props.controlMinWidth || 'auto',
       }),
       dropdownIndicator: (base: any) => ({
         ...base,
